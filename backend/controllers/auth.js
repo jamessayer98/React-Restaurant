@@ -2,11 +2,41 @@ const { pick, get, assign } = require("lodash");
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
 
-const { createValidate, updateValidate } = require("../utils");
+const { createValidate } = require("../utils");
+const e = require("express");
 
 const login = async (req, res, next) => {
 	try {
+		const { email = "", password = "" } = req.body || {};
+
+		if (!email) {
+			return res.status(400).send({ message: "Email is required"});
+		}
+
+		if (!password) {
+			return res.status(400).send({ message: "Password is required"});
+		}
+
+		const user = await User.findOne({ email: req.body.email })
+			.select("_id password email firstName lastName role")
+			.exec();
 		
+		if (!user) {
+			return res.status(401).send({
+				message: "Not registered user"
+			});
+		}
+
+		if (bcrypt.compareSync(req.body.password, user.password)) {
+			const token = user.getAuthToken();
+
+			res.json({
+				info: pick(user, ["_id", "firstName", "lastName", "email", "role"]),
+				token
+			});
+		} else {
+			res.status(401).send({ message: "Password is incorrect" });
+		}
 	} catch (error) {
 		res.status(500).send({ message: "Internal server error" });
 		next(error);
@@ -55,3 +85,8 @@ const signUp = async (req, res, next) => {
 		next(error);
 	}
 }
+
+module.exports = {
+	login,
+	signUp,
+};
