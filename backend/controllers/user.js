@@ -12,6 +12,11 @@ const list = async (req, res, next) => {
 	try {
 		
 	} catch(err) {
-		console.log(err);
+		next(error);
 	}
 }
+
+module.exports = {
+	list,
+	read,
+};
