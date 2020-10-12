@@ -10,7 +10,6 @@ const read = (req, res, next) => {
 const list = async (req, res, next) => {
 	try {
 		const where = { _id: { $ne: req.user._id} };
-		// const count = await User.countDocuments(where);
 
 		if (role) {
 			where["role"] = role;

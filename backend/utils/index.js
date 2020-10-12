@@ -1,15 +1,17 @@
 const Joi = require("joi");
 
-const hasRole = (roles) => {
+function hasRole(roles) {
   return (req, res, next) => {
     if (roles.indexOf(req.user.role) > -1) {
       next();
+
       return;
     }
-  }
+    res.status(403).send({ message: "Permission denied." });
+  };
 }
 
-const createValidate = (uesr) => {
+function createValidate(user) {
   return Joi.validate(user, {
     firstName: Joi.string()
       .min(1)
@@ -41,7 +43,7 @@ const createValidate = (uesr) => {
   });
 }
 
-const UpdateValidate = (user) => {
+function updateValidate(user) {
   return Joi.validate(user, {
     firstName: Joi.string()
       .min(1)
@@ -67,8 +69,9 @@ const UpdateValidate = (user) => {
           }
         }
       }),
+
     role: Joi.string()
-      .valid("admin", "ownser", "regular")
+      .valid("admin", "owner", "regular")
       .optional()
   });
 }
@@ -76,5 +79,5 @@ const UpdateValidate = (user) => {
 module.exports = {
   hasRole,
   createValidate,
-  UpdateValidate
+  updateValidate
 };
