@@ -1,7 +1,7 @@
 const { isInteger, toNumber, pick, get } = require("lodash");
 
 const User = require("../models/user");
-const { createValidate, updateValidate } = require("../utiles");
+const { createValidate, updateValidate } = require("../utils");
 
 const read = (req, res, next) => {
 	res.json(req.user);
@@ -126,6 +126,7 @@ const remove = async (req, res, next) => {
 module.exports = {
 	list,
 	read,
+	create,
 	update,
 	remove,
 };

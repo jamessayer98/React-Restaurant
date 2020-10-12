@@ -1,5 +1,4 @@
 const Joi = require("joi");
-const { max } = require("lodash");
 
 const hasRole = (roles) => {
   return (req, res, next) => {

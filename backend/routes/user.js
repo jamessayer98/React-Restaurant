@@ -1,19 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/userController");
+const user = require("../controllers/user");
 const permissions = require("../utils");
 
 router.use(permissions.hasRole(["admin"]));
 
 router
   .route("/")
-  .get(userController.list)
-  .post(userController.create);
+  .get(user.list)
+  .post(user.create);
 
 router
   .route("/:id")
-  .get(userController.read)
-  .put(userController.update)
-  .delete(userController.remove);
+  .get(user.read)
+  .put(user.update)
+  .delete(user.remove);
 
 module.exports = router;
