@@ -14,9 +14,6 @@ import {
   Card
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import LockIcon from "@material-ui/icons/Lock";
-import EmailIcon from "@material-ui/icons/Email";
-import AccessibleIcon from "@material-ui/icons/Accessible";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup";

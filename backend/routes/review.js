@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const reviewController = require("../controllers/reviewController");
+const review = require("../controllers/review");
 
 router
   .route("/restaurants/:id/reviews")
-  .get(reviewController.read)
-  .post(reviewController.create);
+  .get(review.read)
+  .post(review.create);
 
 router
   .route("/restaurants/reviews/:id")
-  .put(reviewController.update)
-  .delete(reviewController.remove);
+  .put(review.update)
+  .delete(review.remove);
 
 module.exports = router;

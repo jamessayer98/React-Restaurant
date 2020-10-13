@@ -1,3 +1,3 @@
-import UpdateReview from "UpdateReview";
+import UpdateReview from "./UpdateReview";
 
 export default UpdateReview;

@@ -18,7 +18,7 @@ import {
   Accessible as AccessibleIcon
 } from "@material-ui/icons";
 import * as Yup from "yup";
-import { user, toast, progress } from "../UpdateRestaurant/node_modules/redux/actions";
+import { user, toast, progress } from "../../redux/actions";
 
 const useStyles = makeStyles(theme => ({
   paper: {

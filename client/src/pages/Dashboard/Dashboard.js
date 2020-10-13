@@ -19,7 +19,9 @@ import {
   Slider,
   IconButton
 } from "@material-ui/core";
+
 import { Rating } from "@material-ui/lab";
+
 import {
   Delete as DeleteIcon,
   Edit as EditIcon,
@@ -28,9 +30,10 @@ import {
   MoreVert as MoreVertIcon
 } from "@material-ui/icons";
 import debounce from "lodash-es/debounce";
+
 import CreateRestaurant from "../../components/CreateRestaurant";
 import UpdateRestaurant from "../../components/UpdateRestaurant";
-import Confirm from "../../components/confirm";
+import Confirm from "../../components/Confirm";
 import { restaurant, toast, progress } from "../../redux/actions";
 
 const columns = [
@@ -145,10 +148,12 @@ const Dashboard = props => {
 
   useEffect(() => {
     getRestaurants({ params });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params, count, restaurant]);
 
   useEffect(() => {
     setDebouncedParams(range);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [range]);
 
   const handleChangeRange = (event, newValue) => {
@@ -355,7 +360,7 @@ const Dashboard = props => {
           />
         )}
       </Container>
-      {/* <Confirm
+      <Confirm
         open={deleteOpen}
         confirmText="Do you want to remove this restaurant?"
         handleClose={() => setDeleteOpen(false)}
@@ -372,7 +377,7 @@ const Dashboard = props => {
         classes={classes}
         open={updateOpen}
         selectedRow={selectedRow}
-      /> */}
+      />
     </React.Fragment>
   );
 };

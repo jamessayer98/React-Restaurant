@@ -12,7 +12,7 @@ import {
   DialogContentText,
   Button
 } from "@material-ui/core";
-import { review, toast, progress } from "redux/actions";
+import { review, toast, progress } from "../../redux/actions";
 
 const useStyles = makeStyles(theme => ({
   textField: {

@@ -24,10 +24,10 @@ import {
   Edit as EditIcon,
   Delete as DeleteIcon
 } from "@material-ui/icons";
-import CreateUser from "components/create_user";
-import UpdateUser from "components/update_user";
-import Confirm from "components/confirm";
-import { user, progress, toast } from "../../components/UpdateRestaurant/node_modules/redux/actions";
+import CreateUser from "../../components/CreateUser";
+import UpdateUser from "../../components/UpdateUser";
+import Confirm from "../../components/Confirm";
+import { user, progress, toast } from "../../redux/actions";
 
 const StyledBreadcrumb = withStyles(theme => ({
   root: {

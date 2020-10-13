@@ -13,7 +13,7 @@ import * as Yup from "yup";
 import _omit from "lodash-es/omit";
 import _get from "lodash-es/get";
 import { Formik } from "formik";
-import { restaurant, toast, user } from "redux/actions";
+import { restaurant, toast, user } from "../../redux/actions";
 
 const UpdateRestaurant = async (props) => {
   const {

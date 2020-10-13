@@ -1,5 +1,3 @@
-const { isInteger, toNumber, pick, get } = require("lodash");
-
 const User = require("../models/user");
 const { createValidate, updateValidate } = require("../utils");
 

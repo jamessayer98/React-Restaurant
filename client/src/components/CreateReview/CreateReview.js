@@ -15,7 +15,7 @@ import {
   Button
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
-import { review, toast, progress } from "redux/actions";
+import { review, toast, progress } from "../../redux/actions";
 
 const useStyles = makeStyles(theme => ({
   textField: {

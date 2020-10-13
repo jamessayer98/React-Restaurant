@@ -7,9 +7,7 @@ import * as serviceWorker from './serviceWorker';
 console.warn = console.error = () => {};
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />,
   document.getElementById('root')
 );
 
