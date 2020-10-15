@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-import { emphasize, makeStyles, withStyles } from "@material-ui/core/styles";
+import moment from "moment";
 import {
   Paper,
   Table,
@@ -24,8 +24,8 @@ import {
   Delete as DeleteIcon,
   Reply as ReplyIcon
 } from "@material-ui/icons";
+import { emphasize, makeStyles, withStyles } from "@material-ui/core/styles";
 import Rating from "@material-ui/lab/Rating";
-import moment from "moment";
 import { review, toast } from "../../redux/actions";
 import CreateReview from "../../components/CreateReview";
 import UpdateReview from "../../components/UpdateReview";
@@ -149,7 +149,6 @@ const DetailedView = props => {
 
   useEffect(() => {
     getReviews({ params, id });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params, currentReview, count]);
 
   const handleChangePage = (event, newPage) => {

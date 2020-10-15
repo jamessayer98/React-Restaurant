@@ -15,7 +15,7 @@ import _get from "lodash-es/get";
 import { Formik } from "formik";
 import { restaurant, toast, user } from "../../redux/actions";
 
-const UpdateRestaurant = async (props) => {
+function UpdateRestaurant(props) {
   const {
     selectedRow,
     handleClose,

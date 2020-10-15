@@ -17,6 +17,7 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { auth, toast } from "../../redux/actions";
+import UpdateProfile from "../UpdateProfile";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -83,6 +84,7 @@ const Header = props => {
                   </Link>
                 )}
               </Box>
+              <Divider orientation="vertical" flexItem />
               <Box component="div" m={1}>
                 <IconButton
                   className={classes.profile}
@@ -90,7 +92,7 @@ const Header = props => {
                   onClick={() => setOpen(true)}
                 >
                   <AccountCircleIcon className={classes.profileIcon} />
-                  {` ${auth.me.firstName} ${auth.me.lastName}`}
+                  {` ${auth.me.firstName} ${auth.me.lastName} (${auth.me.role})`}
                 </IconButton>
                 <Link to="" className={classes.link}>
                   <Button color="inherit" onClick={handlgeLogout}>
@@ -101,7 +103,7 @@ const Header = props => {
             </React.Fragment>
           )}
         </Toolbar>
-        {/* <UpdateProfile handleClose={() => setOpen(false)} open={open} /> */}
+        <UpdateProfile handleClose={() => setOpen(false)} open={open} />
       </AppBar>
     </div>
   );

@@ -148,12 +148,10 @@ const Dashboard = props => {
 
   useEffect(() => {
     getRestaurants({ params });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params, count, restaurant]);
 
   useEffect(() => {
     setDebouncedParams(range);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [range]);
 
   const handleChangeRange = (event, newValue) => {

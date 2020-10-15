@@ -12,11 +12,6 @@ import {
   Button,
   Box
 } from "@material-ui/core";
-import {
-  Person as PersonIcon,
-  Email as EmailIcon,
-  Lock as LockIcon
-} from "@material-ui/icons";
 import * as Yup from "yup";
 import _ from "lodash-es";
 import { auth, toast, progress } from "../../redux/actions";
@@ -167,13 +162,6 @@ const UpdateProfile = props => {
                         props.touched.firstName &&
                         props.errors.firstName
                       }
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <PersonIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       autoFocus
                     />
                   </Grid>
@@ -191,13 +179,6 @@ const UpdateProfile = props => {
                         props.touched.lastName &&
                         props.errors.lastName
                       }
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <PersonIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       autoComplete="lname"
                     />
                   </Grid>
@@ -215,13 +196,6 @@ const UpdateProfile = props => {
                         props.errors.email
                       }
                       onChange={props.handleChange}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <EmailIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       autoComplete="email"
                     />
                   </Grid>
@@ -240,13 +214,6 @@ const UpdateProfile = props => {
                         props.touched.password &&
                         props.errors.password
                       }
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <LockIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       autoComplete="current-password"
                     />
                   </Grid>
@@ -259,13 +226,6 @@ const UpdateProfile = props => {
                       type="password"
                       value={props.values.passwordConfirm}
                       onChange={props.handleChange}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <LockIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       error={
                         props.errors.passwordConfirm &&
                         props.touched.passwordConfirm

@@ -1,82 +1,81 @@
 import { handleActions } from "redux-actions";
 import { Success, Fail } from "../../utils/status";
 import {
-  GET_RESTAURANTS,
-  CREATE_RESTAURANT,
-  UPDATE_RESTAURANT,
-  DELETE_RESTAURANT,
-  SET_RESTAURANT_PARAMS
-} from "../constants";
+  GET_REVIEWS,
+  SET_REVIEW_PARAMS,
+  ADD_REVIEW,
+  EDIT_REVIEW,
+  DELETE_REVIEW
+} from "../../redux/constants";
 
 const initialState = {
-  restaurants: [],
-  currentRestaurant: null,
+  reviews: [],
+  currentReview: null,
   filteredResults: [],
-  count: -1,
+  count: 0,
   params: {
     page: 1,
-    limit: 5,
-    min: null,
-    max: null,
-    user: []
+    limit: 5
   },
   error: ""
 };
 
 export default handleActions(
   {
-    [SET_RESTAURANT_PARAMS]: (state, { payload }) => ({
+    [SET_REVIEW_PARAMS]: (state, { payload }) => ({
       ...state,
       params: {
         ...state.params,
         ...payload
       }
     }),
-    [Success(GET_RESTAURANTS)]: (state, { payload }) => ({
+    [Success(GET_REVIEWS)]: (state, { payload }) => ({
       ...state,
-      restaurants: payload.restaurants,
+      reviews: payload.reviews,
       count: payload.count,
       error: null
     }),
-    [Fail(GET_RESTAURANTS)]: (state, { payload }) => ({
+    [Fail(GET_REVIEWS)]: (state, { payload }) => ({
       ...state,
       error: payload.data
     }),
-    [Success(CREATE_RESTAURANT)]: (state, { payload }) => {
+    [Success(ADD_REVIEW)]: (state, { payload }) => {
       return {
         ...state,
-        currentRestaurant: payload,
+        currentReview: payload,
         count: state.count + 1,
         error: null
       };
     },
-    [Fail(CREATE_RESTAURANT)]: (state, { payload }) => {
+    [Fail(ADD_REVIEW)]: (state, { payload }) => {
       return {
         ...state,
         error: payload.data
       };
     },
-    [Success(UPDATE_RESTAURANT)]: (state, { payload }) => {
+    [Success(EDIT_REVIEW)]: (state, { payload }) => {
       return {
         ...state,
-        currentRestaurant: payload,
+        currentReview: payload,
+        count: state.count,
         error: null
       };
     },
-    [Fail(UPDATE_RESTAURANT)]: (state, { payload }) => {
+    [Fail(EDIT_REVIEW)]: (state, { payload }) => {
       return {
         ...state,
         error: payload.data
       };
     },
-    [Success(DELETE_RESTAURANT)]: (state, { payload }) => {
+    [Success(DELETE_REVIEW)]: (state, { payload }) => {
       return {
         ...state,
+        currentReview: payload,
         count: state.count - 1,
         error: null
       };
     },
-    [Fail(DELETE_RESTAURANT)]: (state, { payload }) => {
+    [Fail(DELETE_REVIEW)]: (state, { payload }) => {
       return {
         ...state,
         error: payload.data

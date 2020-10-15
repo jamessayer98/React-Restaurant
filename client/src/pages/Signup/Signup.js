@@ -18,7 +18,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import { auth, toast } from "../../redux/actions";
-import PersonIcon from "@material-ui/icons/Person";
 
 const useStyles = makeStyles(theme => ({
   avatar: {
