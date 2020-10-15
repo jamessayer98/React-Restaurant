@@ -91,7 +91,6 @@ const Header = props => {
                   color="inherit"
                   onClick={() => setOpen(true)}
                 >
-                  <AccountCircleIcon className={classes.profileIcon} />
                   {` ${auth.me.firstName} ${auth.me.lastName} (${auth.me.role})`}
                 </IconButton>
                 <Link to="" className={classes.link}>
