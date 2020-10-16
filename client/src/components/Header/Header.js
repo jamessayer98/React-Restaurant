@@ -13,7 +13,6 @@ import {
 } from "@material-ui/core";
 import {
   ExitToApp as ExitToAppIcon,
-  AccountCircle as AccountCircleIcon
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { auth, toast } from "../../redux/actions";

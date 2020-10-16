@@ -130,6 +130,7 @@ const DetailedView = props => {
   const classes = useStyles();
   const history = useHistory();
   const {
+    getRestaurant,
     getReviews,
     deleteReview,
     showToast,
@@ -258,7 +259,7 @@ const DetailedView = props => {
                               </TableCell>
                             </React.Fragment>
                           );
-                        else if (column.id === "action" && me.role === "admin")
+                        else if (column.id === "action" && (me.role === "admin"))
                           return (
                             <React.Fragment key={column.id}>
                               <TableCell
@@ -306,6 +307,7 @@ const DetailedView = props => {
                                     precision={0.25}
                                     readOnly
                                   />
+                                  <p className="h6">({value})</p>
                                 </Box>
                               </TableCell>
                             </React.Fragment>
@@ -382,7 +384,8 @@ const mapStateToProps = state => ({
   reviews: state.review.reviews,
   count: state.review.count,
   params: state.review.params,
-  currentReview: state.review.currentReview
+  currentReview: state.review.currentReview,
+  getRestaurant: state.getRestaurant
 });
 
 const mapDispatchToProps = {

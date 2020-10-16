@@ -253,7 +253,6 @@ async function remove(req, res, next) {
   Restaurant.findOne({ _id: review.restaurant._id })
     .populate("reviews")
     .exec(async (err, restaurant) => {
-      console.log(restaurant);
       if (!restaurant) {
         return res.status(400).send({
           message: "Restaurant doesn't exist."

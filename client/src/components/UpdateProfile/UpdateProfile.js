@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   TextField,
@@ -12,6 +13,11 @@ import {
   Button,
   Box
 } from "@material-ui/core";
+import {
+  Person as PersonIcon,
+  Email as EmailIcon,
+  Lock as LockIcon
+} from "@material-ui/icons";
 import * as Yup from "yup";
 import _ from "lodash-es";
 import { auth, toast, progress } from "../../redux/actions";
@@ -97,6 +103,7 @@ const UpdateProfile = props => {
     ) {
       values = _.omit(values, ["password", "passwordConfirm"]);
     }
+
 
     updateProfile({
       body: values,

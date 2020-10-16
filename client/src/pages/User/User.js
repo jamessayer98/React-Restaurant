@@ -123,7 +123,6 @@ const User = props => {
 
   useEffect(() => {
     getUsers({ params: { ...params, role } });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params, user, count, role]);
 
   const handleChangePage = (event, newPage) => {

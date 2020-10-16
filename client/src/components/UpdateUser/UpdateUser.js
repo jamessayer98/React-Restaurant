@@ -150,13 +150,6 @@ const UpdateUser = props => {
                         props.touched.firstName &&
                         props.errors.firstName
                       }
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <PersonIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       autoFocus
                     />
                   </Grid>
@@ -174,13 +167,6 @@ const UpdateUser = props => {
                         props.touched.lastName &&
                         props.errors.lastName
                       }
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <PersonIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       autoComplete="lname"
                     />
                   </Grid>
@@ -198,13 +184,6 @@ const UpdateUser = props => {
                         props.errors.email
                       }
                       onChange={props.handleChange}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <EmailIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       autoComplete="email"
                     />
                   </Grid>
@@ -223,13 +202,6 @@ const UpdateUser = props => {
                         props.touched.password &&
                         props.errors.password
                       }
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <LockIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       autoComplete="current-password"
                     />
                   </Grid>
@@ -242,13 +214,6 @@ const UpdateUser = props => {
                       type="password"
                       value={props.values.passwordConfirm}
                       onChange={props.handleChange}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <LockIcon />
-                          </InputAdornment>
-                        )
-                      }}
                       error={
                         props.errors.passwordConfirm &&
                         props.touched.passwordConfirm
@@ -276,13 +241,6 @@ const UpdateUser = props => {
                     }}
                     error={props.errors.role && props.touched.role}
                     helperText="Please select your role"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <AccessibleIcon />
-                        </InputAdornment>
-                      )
-                    }}
                     variant="outlined"
                   >
                     <option value="regular">Regular</option>

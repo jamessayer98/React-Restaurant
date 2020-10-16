@@ -1,9 +1,11 @@
 import { handleActions } from "redux-actions";
 import { Success, Fail } from "../../utils/status";
-import { 
-  LOG_IN, 
-  SIGN_UP, 
-  LOG_OUT 
+import {
+  LOG_IN,
+  SIGN_UP,
+  LOG_OUT,
+  UPDATE_PROFILE,
+  REMOVE_PROFILE
 } from "../constants";
 
 const getInitialState = () => {
@@ -54,7 +56,31 @@ export default handleActions(
       me: null,
       error: payload
     }),
-    
+    [Success(UPDATE_PROFILE)]: (state, { payload }) => ({
+      ...state,
+      status: "SUCCESS",
+      error: null,
+      me: payload.info
+    }),
+
+    [Fail(UPDATE_PROFILE)]: (state, { payload }) => ({
+      ...state,
+      status: "FAIL",
+      error: payload
+    }),
+    [Success(REMOVE_PROFILE)]: (state, { payload }) => ({
+      ...state,
+      status: "SUCCESS",
+      error: null,
+      me: {}
+    }),
+
+    [Fail(REMOVE_PROFILE)]: (state, { payload }) => ({
+      ...state,
+      status: "FAIL",
+      error: payload,
+      me: {}
+    }),
     [LOG_OUT]: state => ({
       ...state,
       token: null,

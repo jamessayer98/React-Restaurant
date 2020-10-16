@@ -143,6 +143,7 @@ const CreateReview = props => {
                       setHover(newHover);
                     }}
                   />
+                  {rate}
                   {rate !== null && (
                     <Box ml={2}>{labels[hover !== -1 ? hover : rate]}</Box>
                   )}

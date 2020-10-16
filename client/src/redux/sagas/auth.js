@@ -2,6 +2,8 @@ import { takeLatest } from "redux-saga/effects";
 import {
   LOG_IN,
   SIGN_UP,
+  UPDATE_PROFILE,
+  REMOVE_PROFILE
 } from "../constants";
 import apiCall from "../../utils/apiCall";
 
@@ -23,7 +25,27 @@ const signup = apiCall({
   }
 });
 
+const updateProfile = apiCall({
+  type: UPDATE_PROFILE,
+  method: "put",
+  path: () => "/auth/updateprofile/",
+  success: ({ data }) => {
+    localStorage.setItem("auth_token", JSON.stringify(data));
+  }
+});
+
+const removeProfile = apiCall({
+  type: REMOVE_PROFILE,
+  method: "delete",
+  path: () => "/auth/removeprofile/",
+  success: ({ data }) => {
+    localStorage.removeItem("auth_token");
+  }
+});
+
 export default function* rootSaga() {
   yield takeLatest(LOG_IN, login);
   yield takeLatest(SIGN_UP, signup);
+  yield takeLatest(UPDATE_PROFILE, updateProfile);
+  yield takeLatest(REMOVE_PROFILE, removeProfile);
 }

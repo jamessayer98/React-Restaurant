@@ -320,6 +320,7 @@ const Dashboard = props => {
                                     precision={0.1}
                                     readOnly
                                   />
+                                  <p className="h6">({value})</p>
                                 </Box>
                               </TableCell>
                             </React.Fragment>
